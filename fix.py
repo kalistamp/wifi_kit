@@ -212,24 +212,24 @@ TOOLS_CONTENT = """
 WIFI ASSESSMENT TOOLS AND RESOURCES
 =====================================================
 
-### 🛠️ Core Wireless Attack Tools
-* **aircrack-ng suite:** (airmon-ng, airodump-ng, aireplay-ng, aircrack-ng) - Essential for monitoring, capturing, and cracking.
-* **wifiphisher / WiFi-Pumpkin:** Frameworks for Rogue Wi-Fi Access Point (Evil Twin) attacks and client-side social engineering.
-* **airgeddon:** A multi-use shell script for auditing wireless networks.
+### Core Wireless Attack Tools
+* aircrack-ng suite: (airmon-ng, airodump-ng, aireplay-ng, aircrack-ng) - Essential for monitoring, capturing, and cracking.
+* wifiphisher / WiFi-Pumpkin: Frameworks for Rogue Wi-Fi Access Point (Evil Twin) attacks and client-side social engineering.
+* airgeddon: A multi-use shell script for auditing wireless networks.
 
-### 📚 Comprehensive Documentation & Resources
-* **The Aircrack-ng Documentation:** (https://www.aircrack-ng.org/doku.php) - Primary source for tool usage.
-* **Mathy Vanhoef's Site:** (https://www.mathyvanhoef.com/) - Researcher who discovered the KRACK attack.
-* **Hacker Roadmap - Wireless Testing:** (https://github.com/sundowndev/hacker-roadmap#globe_with_meridians-wireless-testing) - High-level guide.
-* **Wigle.net:** Database of wireless networks for location and analysis.
-* **Literature:**
+### Comprehensive Documentation & Resources
+* The Aircrack-ng Documentation: (https://www.aircrack-ng.org/doku.php) - Primary source for tool usage.
+* Mathy Vanhoef's Site: (https://www.mathyvanhoef.com/) - Researcher who discovered the KRACK attack.
+* Hacker Roadmap - Wireless Testing: (https://github.com/sundowndev/hacker-roadmap#globe_with_meridians-wireless-testing) - High-level guide.
+* Wigle.net: Database of wireless networks for location and analysis.
+* Literature:
     * A Comprehensive Taxonomy of Wi-Fi Attacks: https://www.ru.nl/publish/pages/769526/mark_vink.pdf
 
-### 🔑 Wordlist Resources
-* **SecLists/Passwords:** (https://github.com/danielmiessler/SecLists/tree/master/Passwords) - The standard starting point for dictionaries.
-* **Kaonashi:** (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
+### Wordlist Resources
+* SecLists/Passwords: (https://github.com/danielmiessler/SecLists/tree/master/Passwords) - The standard starting point for dictionaries.
+* Kaonashi: (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
 
-### 📌 Adapter Setup Guide (Example: Alfa AWUS036ACM)
+### Adapter Setup Guide (Example: Alfa AWUS036ACM)
 
 sudo apt update && sudo apt upgrade -y 
 sudo apt dist-upgrade -y 
