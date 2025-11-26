@@ -230,7 +230,6 @@ WIFI ASSESSMENT TOOLS AND RESOURCES
 * **Kaonashi:** (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
 
 ### 📌 Adapter Setup Guide (Example: Alfa AWUS036ACM)
-```bash
 sudo apt update && sudo apt upgrade -y 
 sudo apt dist-upgrade -y 
 # Driver installation may be required depending on your Kali version.
@@ -239,7 +238,6 @@ sudo apt install realtek-rtl88xxau-dkms
 # git clone https://github.com/aircrack-ng/rtl8812au
 # cd rtl8812au/ && make && sudo make install
 # Verify with: lsusb && iwconfig
-```
 """
 
 def write_documentation_files(base_dir: Path):
