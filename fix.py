@@ -1,19 +1,3 @@
-
-
-┌──(kali㉿kali)-[~/Documents]
-└─$ python3 /home/kali/Downloads/fix.py
-  File "/home/kali/Downloads/fix.py", line 265
-    ```
-    ^
-SyntaxError: invalid syntax
-                                                                             
-┌──(kali㉿kali)-[~/Documents]
-
-
-
-
-
-
 #!/usr/bin/env python3
 
 # Disclaimer: This script is for educational purposes only.
@@ -246,6 +230,7 @@ WIFI ASSESSMENT TOOLS AND RESOURCES
 * **Kaonashi:** (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
 
 ### 📌 Adapter Setup Guide (Example: Alfa AWUS036ACM)
+
 sudo apt update && sudo apt upgrade -y 
 sudo apt dist-upgrade -y 
 # Driver installation may be required depending on your Kali version.
