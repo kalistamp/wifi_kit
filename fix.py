@@ -1,3 +1,19 @@
+
+
+┌──(kali㉿kali)-[~/Documents]
+└─$ python3 /home/kali/Downloads/fix.py
+  File "/home/kali/Downloads/fix.py", line 265
+    ```
+    ^
+SyntaxError: invalid syntax
+                                                                             
+┌──(kali㉿kali)-[~/Documents]
+
+
+
+
+
+
 #!/usr/bin/env python3
 
 # Disclaimer: This script is for educational purposes only.
