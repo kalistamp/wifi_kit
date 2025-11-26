@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 # Disclaimer: This script is for educational purposes only.
@@ -230,19 +229,18 @@ WIFI ASSESSMENT TOOLS AND RESOURCES
 * **SecLists/Passwords:** (https://github.com/danielmiessler/SecLists/tree/master/Passwords) - The standard starting point for dictionaries.
 * **Kaonashi:** (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
 
-### 🔌 Adapter Setup Guide (Example: Alfa AWUS036ACM)
+### 📌 Adapter Setup Guide (Example: Alfa AWUS036ACM)
 ```bash
 sudo apt update && sudo apt upgrade -y 
 sudo apt dist-upgrade -y 
 # Driver installation may be required depending on your Kali version.
 sudo apt install realtek-rtl88xxau-dkms 
 # Or manually install from source if necessary (for advanced users):
-# git clone [https://github.com/aircrack-ng/rtl8812au](https://github.com/aircrack-ng/rtl8812au) 
+# git clone https://github.com/aircrack-ng/rtl8812au
 # cd rtl8812au/ && make && sudo make install
 # Verify with: lsusb && iwconfig
-````
-
-""" # \<--- This closing quote is CRITICAL and must be the last thing before the function definitions\!
+```
+"""
 
 def write_documentation_files(base_dir: Path):
     """Writes the predefined documentation to text files using context managers."""
@@ -262,38 +260,32 @@ def write_documentation_files(base_dir: Path):
                 f.write(content)
         except Exception as e:
             print(f" [!] Failed to write file {file_path}: {e}")
-```
 
 def main():
-"""Main execution function."""
-sub_banner()
-print("Author: Kalistamp")
-print("\\n" \* 2)
+    """Main execution function."""
+    sub_banner()
+    print("Author: Kalistamp")
+    print("\n" * 2)
 
-```
-# 1. Get input for the main directory name
-default_name = datetime.now().strftime("%Y-%m-%d_WIFI_ASSESSMENT")
-print(f"Suggestion: {default_name}")
-main_dir_name = input('Enter Name/Date for Today\'s Work: ')
+    # 1. Get input for the main directory name
+    default_name = datetime.now().strftime("%Y-%m-%d_WIFI_ASSESSMENT")
+    print(f"Suggestion: {default_name}")
+    main_dir_name = input('Enter Name/Date for Today\'s Work: ')
 
-if not main_dir_name:
-    main_dir_name = default_name
+    if not main_dir_name:
+        main_dir_name = default_name
 
-base_dir = Path(main_dir_name.strip())
+    base_dir = Path(main_dir_name.strip())
 
-print("\n" * 2)
+    print("\n" * 2)
 
-# 2. Create directories
-create_directory_structure(base_dir)
+    # 2. Create directories
+    create_directory_structure(base_dir)
 
-# 3. Write documentation
-write_documentation_files(base_dir)
+    # 3. Write documentation
+    write_documentation_files(base_dir)
 
-print('\n[+] Assessment Kit and Manual Created Successfully.')
-```
+    print('\n[+] Assessment Kit and Manual Created Successfully.')
 
-if **name** == "**main**":
-main()
-
-```
-```
+if __name__ == "__main__":
+    main()
