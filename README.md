@@ -1,4 +1,8 @@
 
+
+https://pastebin.com/38bdKhNA
+
+
 ## check:
 
 Add to my own Repo? (CHECK !) - https://github.com/lutzenfried/Methodology/blob/main/wireless.md
