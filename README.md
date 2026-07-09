@@ -1,13 +1,13 @@
-```markdown
+markdown
 ## Usage: subfolder_ng.py
 
 Generates the standard assessment folder structure and reference manuals
 (`WIFI_ASSESSMENT_MANUAL.txt`, `WORDLIST_UTILS.txt`, `TOOLS_RESOURCES.txt`,
 capture notes) for a new engagement.
 
-```
-python3 subfolder_ng.py --name "My-Assessment-v1"
-```
+
+**python3 subfolder_ng.py --name "My-Assessment-v1"**
+
 
 * `--name` sets the assessment folder name directly and skips the interactive
   prompt. **Pass this flag every time** you run the script in a scripted, CI,
@@ -83,8 +83,7 @@ What hasn't changed: The OS-level captive portal popup (Apple's CNA, Android's e
 
 ## Setup Alfa AWUS036ACM Adapter (steps):
 
-```
-sudo apt update 
+**sudo apt update 
 sudo apt upgrade -y 
 sudo apt dist-upgrade -y 
 sudo reboot now 
@@ -96,8 +95,8 @@ cd rtl8812au/
 make 
 sudo make install 
 lsusb 
-iwconfig
-```
+iwconfig**
+
 
 ## Literature:
 
@@ -119,7 +118,7 @@ KRACK is a replay attack on the Wi-Fi Protected Access protocol that secures Wi-
 
 * * *
 
-``` 
-Disclaimer: This script is for educational purposes only. Please don’t use this knowledge for malicious purposes 
-```
-```
+
+**Disclaimer: This script is for educational purposes only. Please don’t use this knowledge for malicious purposes**
+
+
