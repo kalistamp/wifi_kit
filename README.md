@@ -1,4 +1,3 @@
-markdown
 ## Usage: subfolder_ng.py
 
 Generates the standard assessment folder structure and reference manuals
