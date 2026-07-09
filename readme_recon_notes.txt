@@ -1,0 +1,1 @@
+Text Input - [ PMKID = Only part of the Handshake was acquired ]

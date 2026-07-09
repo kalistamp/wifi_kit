@@ -1,0 +1,43 @@
+
+///////////////// WORDLIST AND COMBO CLEANUP UTILITIES //////////////////////
+
+These commands are essential for managing, cleaning, and preparing large wordlists
+for efficient password cracking.
+
+# 1. Check Number of Lines in a Wordlist
+wc -l example.txt
+
+# 2. Join Multiple Wordlist/Combo Files into One
+# Run this inside the directory containing the files.
+cat *.txt > new_combined.txt
+
+# 3. Remove Duplicates from a List (Sorts and removes simultaneously)
+cat example.txt | sort | uniq > unique_list.txt
+
+# 4. Extract Only Passwords or Emails from a Combo List (e.g., email:password)
+# -d':': Use ':' as the delimiter (separator).
+# -f2: Selects the second field (password). Use -f1 to select the first (email).
+cat example.txt | cut -d':' -f2 > passwords_only.txt
+
+# 5. Wordlist Strategy: Why Bigger Isn't Always Better
+# Generic public wordlists (SecLists, rockyou-style lists, etc.) see
+# diminishing returns against longer, higher-entropy modern passwords. In
+# practice, the following techniques tend to outperform simply using a
+# larger dictionary:
+#
+#   Technique          Description                              Tooling
+#   Rule-based attack  Apply mutation rules to a smaller list    hashcat rules
+#   Mask attack        Brute-force a known pattern,              hashcat
+#                      e.g. ?u?l?l?l?d?d?d?d
+#   Hybrid attack      Wordlist + mask combined                  hashcat
+#   Prince attack      Combines words from a list in smart ways  princeprocessor
+#
+# Custom/targeted wordlists (e.g. built with a tool like cupp) can also
+# outperform large generic lists, but should only ever be built from
+# information already in scope for an authorized engagement, such as
+# organization-specific naming conventions the client has provided. Building
+# a wordlist from personal details gathered about an individual without
+# their consent falls outside authorized security testing and is not
+# covered by this kit.
+
+////////////////////////////////////////////////////////////////////////////////
