@@ -1,19 +1,29 @@
+## Usage: subfolder_ng.py
 
+Generates the standard assessment folder structure and reference manuals
+(`WIFI_ASSESSMENT_MANUAL.txt`, `WORDLIST_UTILS.txt`, `TOOLS_RESOURCES.txt`,
+capture notes) for a new engagement.
 
-https://pastebin.com/AnUStSkv
+```
+python3 subfolder_ng.py --name "My-Assessment-v1"
+```
 
-old - 
-
-https://pastebin.com/38bdKhNA
-
+* `--name` sets the assessment folder name directly and skips the interactive
+  prompt. **Pass this flag every time** you run the script in a scripted, CI,
+  or automated context — without it, the script will block waiting for input
+  on stdin.
+* If `--name` is omitted, the script falls back to an interactive prompt with
+  a date-stamped default (e.g. `2026-07-08_WIFI_ASSESSMENT`).
+* The `templates/` directory next to `subfolder_ng.py` must be present — it
+  holds the manual/reference content the script loads at runtime.
 
 ## check:
 
-Add to my own Repo? (CHECK !) - https://github.com/lutzenfried/Methodology/blob/main/wireless.md
+Add to my own Repo? (CHECK !) - https://github.com/lutzenfried/Methodology/blob/main/wireless.md — a structured personal methodology/checklist for wireless assessments; worth comparing against this repo's own workflow.
 
-https://pentestlab.blog/2015/02/03/hirte-attack/
+https://pentestlab.blog/2015/02/03/hirte-attack/ — write-up on the Hirte attack, a WEP client-side attack variant usable when you only have a client and no AP in range.
 
-https://github.com/mgeeky/Penetration-Testing-Tools/tree/master/networks/wpa2-enterprise-utils
+https://github.com/mgeeky/Penetration-Testing-Tools/tree/master/networks/wpa2-enterprise-utils — utilities focused on WPA2-Enterprise (802.1X) testing, which the aircrack-ng-centric workflow above doesn't cover.
 
 ## Phish:
 
@@ -23,33 +33,33 @@ Wifiphisher - Wifiphisher is a rogue Access Point framework for conducting red t
 
 ## Sources:
 
-* https://github.com/0x90/wifi-arsenal (FORK: https://github.com/techge/wifi-arsenal)
+* https://github.com/0x90/wifi-arsenal (FORK: https://github.com/techge/wifi-arsenal) — a broad, curated collection of wireless attack tools and references; good first stop when looking for a specific utility.
 
-* https://github.com/TheWickerMan/Auto-Airodump-NG/blob/master/Auto-Airodump-NG [Tst and Take]
+* https://github.com/TheWickerMan/Auto-Airodump-NG/blob/master/Auto-Airodump-NG [Tst and Take] — a script that automates/wraps common airodump-ng workflows.
 
-* https://github.com/v1s1t0r1sh3r3/airgeddon/wiki/Screenshots
+* https://github.com/v1s1t0r1sh3r3/airgeddon/wiki/Screenshots — screenshots/walkthrough of airgeddon, the multi-use wireless auditing shell script referenced in TOOLS_RESOURCES.txt.
 
-* https://github.com/gorvgoyl/clone-wars
+* https://github.com/gorvgoyl/clone-wars — collection/list of Evil Twin and rogue-AP style attack tools, relevant to the Phish tools above.
 
-* https://github.com/KasRoudra/PyPhisher
+* https://github.com/KasRoudra/PyPhisher — phishing page framework; relevant to social-engineering-style Wi-Fi credential capture rather than handshake cracking.
 
-* https://github.com/AlexLynd/ESP8266-Wardriving
+* https://github.com/AlexLynd/ESP8266-Wardriving — ESP8266-based wardriving/scanning project for cheap dedicated hardware.
 
-* https://pwnagotchi.ai/
+* https://pwnagotchi.ai/ — AI-assisted handshake-collection tool that runs on small hardware (e.g. Raspberry Pi) and passively gathers handshakes over time.
 
-* [Hacker_Roadmap](https://github.com/sundowndev/hacker-roadmap#globe_with_meridians-wireless-testing)
+* [Hacker_Roadmap](https://github.com/sundowndev/hacker-roadmap#globe_with_meridians-wireless-testing) — high-level index of wireless testing tools and techniques, useful as a jumping-off point.
 
-* [Wigle](https://wigle.net/)
+* [Wigle](https://wigle.net/) — public database of observed wireless networks, searchable by location; useful for wardriving research and coverage mapping.
 
-* https://www.youtube.com/watch?v=QHo2hCzxMr0
+* https://www.youtube.com/watch?v=QHo2hCzxMr0 — video walkthrough (see video title/description for specifics).
 
 ## Wordlists:
 
-* https://github.com/ZKAW/big_wpa_wordlist
+* https://github.com/ZKAW/big_wpa_wordlist — large WPA-focused wordlist; see WORDLIST_UTILS.txt for why wordlist strategy (rules/masks) usually matters more than raw size.
 
-* https://github.com/danielmiessler/SecLists/tree/master/Passwords
+* https://github.com/danielmiessler/SecLists/tree/master/Passwords — the standard general-purpose password wordlist collection; a solid default starting point.
 
-* https://github.com/kaonashi-passwords/Kaonashi
+* https://github.com/kaonashi-passwords/Kaonashi — specialized/curated wordlist project, complementary to SecLists.
 
 ## Setup Alfa aws036acm Adapter (steps):
 ```
