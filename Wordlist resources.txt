@@ -1,5 +1,5 @@
 =====================================================
-WIFI ASSESSMENT TOOLS AND RESOURCES
+WORDLIST RESOURCES 
 =====================================================
 
 ### Core Wireless Attack Tools
