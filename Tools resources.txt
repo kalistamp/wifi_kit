@@ -1,0 +1,149 @@
+=====================================================
+WIFI ASSESSMENT TOOLS AND RESOURCES
+=====================================================
+
+### Core Wireless Attack Tools
+* aircrack-ng suite: (airmon-ng, airodump-ng, aireplay-ng, aircrack-ng) - Essential for monitoring, capturing, and cracking.
+* wifiphisher / WiFi-Pumpkin: Frameworks for Rogue Wi-Fi Access Point (Evil Twin) attacks and client-side social engineering.
+* airgeddon: A multi-use shell script for auditing wireless networks.
+* Wireshark: Protocol analyzer used to inspect 802.11 management frames --
+  in this kit, primarily for verifying PMF/802.11w status before attempting
+  a deauth attack (see WIFI_ASSESSMENT_MANUAL.txt, Step 3.1).
+
+### Comprehensive Documentation & Resources
+* The Aircrack-ng Documentation: (https://www.aircrack-ng.org/doku.php) - Primary source for tool usage.
+* Mathy Vanhoef's Site: (https://www.mathyvanhoef.com/) - Researcher who discovered the KRACK attack.
+* Hacker Roadmap - Wireless Testing: (https://github.com/sundowndev/hacker-roadmap#globe_with_meridians-wireless-testing) - High-level guide.
+* Wigle.net: Database of wireless networks for location and analysis.
+* Literature:
+    * A Comprehensive Taxonomy of Wi-Fi Attacks: https://www.ru.nl/publish/pages/769526/mark_vink.pdf
+
+### Wordlist Resources
+* SecLists/Passwords: (https://github.com/danielmiessler/SecLists/tree/master/Passwords) - The standard starting point for dictionaries.
+* Kaonashi: (https://github.com/kaonashi-passwords/Kaonashi) - Specialized wordlist project.
+
+Most of the well-known public wordlists (SecLists, Weakpass, Hashmob, rockyou variants, etc.) do have relatively low success rates against modern WiFi passwords in 2026, especially if the target uses:
+* Longer passwords (12+ characters)
+* Passphrases
+* Unique or randomly generated passwords
+* Passwords with good entropy
+These public lists are useful as a starting point, but they are no longer the most effective method for serious cracking. Many people in the community have noticed diminishing returns from generic public lists over the past few years.
+So What Actually Works Best Now?
+Here’s the realistic ranking of what gives the highest success rates for cracking WPA/WPA2 handshakes today:
+1. Targeted / Custom Wordlists (Highest Success Rate for Most Attacks)
+This is currently one of the most effective methods in practice.
+Best techniques:
+* Use the target’s personal information to generate a custom wordlist.
+* Tools: cupp (Common User Passwords Profiler), custom scripts, or even ChatGPT + manual refinement.
+* Include variations of:
+    * Name + birthday
+    * Pet names + numbers
+    * Company name + year
+    * Street address + special characters
+    * Sports teams, favorite things, etc.
+Why it works well: Most people still create passwords based on things they know. A well-made targeted list of only a few thousand entries often outperforms a generic list of millions.
+2. Large Breach Compilation Wordlists (Most Powerful Raw Power)
+These are currently the strongest generic lists available:
+* Large combined breach lists (often called “compilation” lists).
+* Many of the best ones are not freely distributed on GitHub anymore.
+* They come from aggregating many data breaches over the years.
+Where people get them:
+* Private Discord groups and forums in the cracking community
+* Paid sources (some sites sell updated compilations)
+* Hashmob / older Hashes.org members sometimes share high-quality compiled lists
+These lists can be very large (50GB–200GB+ when uncompressed) and contain millions of real passwords that people actually use.
+3. Advanced Attack Methods (Often Better Than Raw Wordlists)
+Instead of relying only on bigger wordlists, many people now focus on these techniques:
+Method  Effectiveness   Description Tools
+Rules + Small List  Very High   Apply strong rules to a smaller list    Hashcat rules
+Mask Attack Very High   Use patterns like ?u?l?l?l?d?d?d?d  Hashcat
+Prince Attack   High    Combines words from a list in smart ways    princeprocessor
+Hybrid Attack   High    Wordlist + mask Hashcat
+AI-Generated Lists  Growing Use LLMs to generate context-aware passwords    Custom scripts + GPT
+Many experienced people now say that a good ruleset + mask attack beats simply downloading bigger public wordlists.
+4. AI-Assisted Wordlist Generation (Emerging Method)
+Some people are now using AI (like GPT-4o, Claude, or local models) to generate highly targeted wordlists based on information about the victim. This is still developing but showing promise.
+Summary: What Actually Works Best in 2026
+Rank    Method  Success Rate    Difficulty  Notes
+1   Targeted custom wordlists   High    Medium  Best for most real attacks
+2   Large breach compilations   Very High   Hard    Powerful but hard to get legally
+3   Rules + Mask + Hybrid   Very High   Medium  Often better than raw big lists
+4   Public lists (SecLists, etc.)   Low–Medium  Easy    Good starting point only
+5   AI-generated lists  Growing Medium  New but promising
+Final Honest Answer
+Your theory is partially correct. Generic public wordlists have lost a lot of effectiveness against modern passwords. The real power now comes from:
+* Creating targeted wordlists based on the victim
+* Using advanced techniques (rules, masks, prince)
+* Accessing large breach compilation lists (often private or paid)
+
+
+***
+
+Targeted Wordlists Require Information
+To build an effective targeted wordlist (using names, birthdays, pet names, addresses, anniversaries, etc.), you need to know something about the person who owns or uses the WiFi network.
+If you have zero information about the target, then targeted attacks become very difficult or impractical.
+How Attackers Actually Get This Information
+Here’s how people realistically gather the information needed for targeted wordlists:
+1. You Already Know the Target (Most Common in Real Attacks)
+This is by far the most common scenario where targeted attacks succeed:
+* Neighbor’s WiFi
+* Ex-partner’s WiFi
+* Friend or family member’s WiFi
+* Coworker’s WiFi
+* Landlord’s WiFi
+In these cases, you often already know:
+* Their name
+* Their partner’s or kids’ names
+* Pet names
+* Approximate age/birth year
+* Street address
+* Favorite sports teams, etc.
+This is why targeted attacks are very effective in personal disputes or when someone has a specific target in mind.
+2. OSINT (Open Source Intelligence) – Researching the Target
+If you don’t personally know them, attackers use publicly available information:
+Source  What You Can Often Find Difficulty
+Facebook / Instagram    Full name, family members, pet photos, birthdays    Medium
+LinkedIn    Name, workplace, sometimes location Easy
+Google / People Search  Address, relatives, age Easy
+Public Records  Property records, voter records (in some states)    Medium
+WiFi Name Itself    Sometimes contains name (e.g. SmithFamily5G)    Easy
+Mailbox / House Signs   Last name (if doing physical reconnaissance)    Easy
+Example: If the WiFi name is TheJohnsons, you can search for “Johnsons” + the street name or city and often find public information about the family.
+3. Physical Reconnaissance
+Sometimes attackers do light physical surveillance:
+* Drive or walk by the house
+* Look at the mailbox for the last name
+* See if there’s a dog (pet name possibility)
+* Notice kids’ toys or sports equipment in the yard
+* Look through windows to see router brand/model
+This is more common in targeted attacks than random ones.
+4. When Targeted Attacks Are Not Practical
+You’re correct that in many situations, targeted wordlists are not feasible:
+* Random networks while driving around (wardriving)
+* Corporate or business WiFi with no public personal info
+* New tenants in an apartment you don’t know
+* Networks with completely random/generic names
+In these cases, attackers usually fall back to:
+* Large breach compilation wordlists
+* Strong rule-based attacks
+* Mask attacks
+* Prince attacks
+Realistic Summary
+Attack Type Do You Need Personal Info?  Success Rate    Common Scenario
+Targeted Wordlist   Yes High    Neighbors, exes, known targets
+Large Public Lists  No  Low–Medium  Random networks
+Rules + Masks   No  Medium–High Most practical attacks
+Breach Compilations No  Medium–High When you have good lists
+
+
+### Adapter Setup Guide (Example: Alfa AWUS036ACM)
+
+sudo apt update && sudo apt upgrade -y
+sudo apt dist-upgrade -y
+# Driver installation may be required depending on your Kali version.
+sudo apt install realtek-rtl88xxau-dkms
+# Or manually install from source if necessary (for advanced users):
+# git clone https://github.com/aircrack-ng/rtl8812au
+# cd rtl8812au/ && make && sudo make install
+# Verify with: lsusb && iwconfig
+# For regulatory domain and power-save tuning, see WIFI_ASSESSMENT_MANUAL.txt, Step 7.
