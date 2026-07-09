@@ -24,7 +24,7 @@ sudo airmon-ng start wlan0
 
 # 1.3 List available interfaces to confirm new monitor mode interface
 # Command:
-iwconfig
+iw dev
 
 # 1.4 Disable Power Saving on the Monitor Interface (Recommended)
 # USB adapters can drop into a low-power sleep state, which causes missed
