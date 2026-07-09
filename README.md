@@ -1,3 +1,4 @@
+```markdown
 ## Usage: subfolder_ng.py
 
 Generates the standard assessment folder structure and reference manuals
@@ -31,6 +32,25 @@ WiFi Pumpkin -	Framework for Rogue Wi-Fi Access Point Attack.
 
 Wifiphisher - Wifiphisher is a rogue Access Point framework for conducting red team engagements or Wi-Fi security testing.
 
+## Evil Twin / Captive Portal Effectiveness (2026)
+
+**Fact-check: are Evil Twin/MITM tools like WiFi-Pumpkin still effective in 2026?**
+
+Your assumption is half right, but the mechanism is different than "providers block the popup."  
+What hasn't changed: The OS-level captive portal popup (Apple's CNA, Android's equivalent) still auto-triggers when a device joins a network that looks like it needs a login — nobody has disabled that mechanism. Security vendors are still writing about it as an active, real threat in 2026, and tools like WiFi-Pumpkin and Wifiphisher are explicitly named as still-functional frameworks for automating scanning, spoofing, captive portal setup, and credential capture.
+
+**What has actually changed, and why success rates are down:**
+
+* **HTTPS adoption on captive portals themselves.** A June 2026 audit of five public networks found all five used HTTPS for the captive portal login page, which blocks plain HTTP credential sniffing — the exact technique your WIFIPUMPKIN3.md doc describes ("this would only work with HTTP"). That said, the same audit noted HTTP captive portals remain in use on less-maintained networks like independent restaurants and older hotel systems, so it's inconsistent, not eliminated.
+
+* **Certificate warnings.** A spoofed captive portal on a rogue AP typically can't present a valid cert for the real domain, so a savvy user (or a hardened browser config) will see a warning — several of the 2026 write-ups explicitly tell users to disconnect immediately if a login page throws certificate warnings.
+
+* **Auto-join/auto-reconnect defaults.** iOS and Android both expose per-network auto-join toggles now, and guides are actively telling users to disable auto-join for public networks — this is the thing that most directly weakens Known Beacons/KARMA-style attacks (relevant to your KNOWN_BEACON.md and the Wifiphisher notes), since those rely on the device automatically reconnecting to a spoofed "previously known" SSID.
+
+* **Overall verdict from a 2026 security audit:** rogue/evil-twin attacks are called out as one of two specific threat vectors that remain real and underreported in an otherwise much-safer public WiFi landscape (thanks to ~95% TLS adoption for regular web traffic).
+
+**Bottom line:** these tools aren't obsolete — they're still actively referenced in 2026 threat writeups and still used in authorized red-team engagements — but their success now depends heavily on the target being an older/unpatched device, a non-HTTPS captive portal, or a user who ignores cert warnings. Against a fully patched, security-conscious target they're much less reliable than in the pre-2018 era.
+
 ## Sources:
 
 * https://github.com/0x90/wifi-arsenal (FORK: https://github.com/techge/wifi-arsenal) — a broad, curated collection of wireless attack tools and references; good first stop when looking for a specific utility.
@@ -61,7 +81,8 @@ Wifiphisher - Wifiphisher is a rogue Access Point framework for conducting red t
 
 * https://github.com/kaonashi-passwords/Kaonashi — specialized/curated wordlist project, complementary to SecLists.
 
-## Setup Alfa aws036acm Adapter (steps):
+## Setup Alfa AWUS036ACM Adapter (steps):
+
 ```
 sudo apt update 
 sudo apt upgrade -y 
@@ -97,4 +118,8 @@ KRACK is a replay attack on the Wi-Fi Protected Access protocol that secures Wi-
 * Mathy Vanhoef: https://www.mathyvanhoef.com/
 
 * * *
- ``` Disclaimer: This script is for educational purposes only. Please don’t use this knowledge for malicious purposes ```
+
+``` 
+Disclaimer: This script is for educational purposes only. Please don’t use this knowledge for malicious purposes 
+```
+```
